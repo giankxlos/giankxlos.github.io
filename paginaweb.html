@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DragonBound | World of Strategy and Skill</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --main-color: #e2b007;
+      --accent-color: #ffffff;
+      --bg-dark: #0b0b0b;
+      --bg-light: #1a1a1a;
+      --font-main: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #0d0d0d, #000);
+      color: var(--accent-color);
+      overflow-x: hidden;
+    }
+
+    /* --- HEADER --- */
+    header {
+      background: rgba(10, 10, 10, 0.9);
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--main-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    header h1 {
+      color: var(--main-color);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px var(--main-color); }
+      to { text-shadow: 0 0 20px gold; }
+    }
+
+    .logo {
+      height: 55px;
+      filter: drop-shadow(0 0 10px gold);
+    }
+
+    /* --- HERO --- */
+    .hero {
+      background: url('https://i.imgur.com/gYcMpRu.jpg') center/cover no-repeat;
+      text-align: center;
+      padding: 150px 20px;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero h2, .hero p, .hero a {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 15px black;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #eee;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #ffd700, #e2b007);
+      border: none;
+      padding: 12px 35px;
+      border-radius: 30px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px gold;
+    }
+
+    /* --- SECTIONS --- */
+    section {
+      padding: 70px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: var(--main-color);
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    section p {
+      color: #ccc;
+      max-width: 850px;
+      margin: 10px auto;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* --- DIVIDER --- */
+    .divider {
+      width: 120px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--main-color), transparent);
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    /* --- VIDEO --- */
+    .video-section {
+      background: var(--bg-light);
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
+    }
+
+    /* --- FEATURES --- */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 50px auto;
+    }
+
+    .feature {
+      background: #111;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    .feature:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .feature h3 {
+      color: var(--main-color);
+      margin-bottom: 10px;
+    }
+
+    /* --- GALLERY --- */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .gallery img {
+      width: 280px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: all 0.4s ease;
+      border: 2px solid #333;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08);
+      border-color: gold;
+      box-shadow: 0 0 20px gold;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 25px;
+      border-top: 2px solid var(--main-color);
+      font-size: 0.9rem;
+    }
+
+    /* --- WHATSAPP --- */
+    #whatsapp-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50px;
+      padding: 12px 18px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+      font-size: 0.9rem;
+      z-index: 1000;
+    }
+
+    #whatsapp-chat:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="im.png" alt="Logo DragonBound" class="logo" />
+  <h1>DRAGONBOUND</h1>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h2>¡BIENVENIDO A DRAGONBOUND! / WELCOME TO DRAGONBOUND!</h2>
+  <p>El campo de batalla donde la precisión, el viento y la estrategia definen a los verdaderos campeones. / The battlefield where precision, wind, and strategy define true champions.</p>
+  <a href="#" class="btn">Explorar / Explore</a>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <h2>🎮 VIDEO INFORMATIVO / INFO VIDEO</h2>
+  <div class="divider"></div>
+  <p>Conoce la historia y jugabilidad de DragonBound. / Discover the story and gameplay of DragonBound.</p>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/qeqrL9LsyCQ" title="DragonBound Video" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- GAME INFO -->
+<section>
+  <h2>¿QUÉ ES DRAGONBOUND? / WHAT IS DRAGONBOUND?</h2>
+  <div class="divider"></div>
+  <p>DragonBound es un videojuego multijugador en línea basado en la física, inspirado en el clásico Gunbound. / DragonBound is an online physics-based multiplayer game inspired by the classic Gunbound.</p>
+  <p>Se juega directamente desde el navegador, sin descargas, y cuenta con gráficos modernos, clanes, torneos y un sistema competitivo global. / Play directly from your browser, with no downloads, featuring modern visuals, clans, tournaments, and a global ranking system.</p>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <h2>CARACTERÍSTICAS / FEATURES</h2>
+  <div class="divider"></div>
+  <div class="features">
+    <div class="feature"><h3>🌪️ Física Real / Real Physics</h3><p>Calcula el viento, el ángulo y la potencia para cada disparo. / Calculate wind, angle, and power for each shot.</p></div>
+    <div class="feature"><h3>🛡️ Personalización / Customization</h3><p>Avatares, efectos, fondos y tanques únicos. / Avatars, effects, backgrounds, and unique tanks.</p></div>
+    <div class="feature"><h3>🔥 Torneos / Tournaments</h3><p>Compite globalmente por recompensas exclusivas. / Compete globally for exclusive rewards.</p></div>
+    <div class="feature"><h3>💬 Comunidad / Community</h3><p>Millones de jugadores activos y clanes internacionales. / Millions of active players and global clans.</p></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <h2>GALERÍA / GALLERY</h2>
+  <div class="divider"></div>
+  <div class="gallery">
+    <img src="https://i.imgur.com/IZ8UoJj.jpeg" alt="Lightning Tank">
+    <img src="https://i.imgur.com/OG3s2Mu.jpeg" alt="Avatars">
+    <img src="https://i.imgur.com/Lv8iD1z.jpeg" alt="Maps">
+    <img src="https://i.imgur.com/N0mLAsN.jpeg" alt="Battle Scene">
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 DragonBound Universe | Todos los derechos reservados / All rights reserved.
+</footer>
+
+<a href="https://wa.me/51994926546" target="_blank" id="whatsapp-chat">💬 WhatsApp</a>
+
+</body>
+</html>
